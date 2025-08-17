@@ -3,6 +3,10 @@ import FeaturesSection from "../../components/landing/FeaturesSections.jsx"; // 
 import PricingSection from "../../components/landing/PricingSection.jsx";
 import TestimonialsSection from "../../components/landing/TestimoialsSection.jsx"; // fixed name
 import FooterSection from "../../components/landing/FooterSection.jsx";
+import CTASection from "../../components/landing/CTASection.jsx";
+import {useClerk} from "@clerk/clerk-react";
+import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 // Example Pricing Plans
 const pricingPlans = [
@@ -40,6 +44,7 @@ const testimonials = [
         company: "Google",
         quote:
             "CloudShare has completely transformed the way our team collaborates. It’s fast, reliable, and super easy to use!",
+        rating: 5,
     },
     {
         image: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -48,6 +53,7 @@ const testimonials = [
         company: "Microsoft",
         quote:
             "I love how intuitive CloudShare is. It has streamlined our workflow and boosted productivity significantly.",
+        rating: 5,
     },
     {
         image: "https://randomuser.me/api/portraits/women/68.jpg",
@@ -56,17 +62,29 @@ const testimonials = [
         company: "Airbnb",
         quote:
             "The best platform we’ve used so far for collaboration. The simplicity and speed are unmatched.",
+        rating: 4,
     },
 ]
 
 
 const Landing = () => {
+
+    const {openSignIn,openSignUp} = useClerk();
+    const {SignedIn}= useClerk();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(SignedIn){
+            navigate("/dashboard");
+        }
+
+    },[SignedIn,navigate])
     return (
         <div className="landing-page bg-gradient-to-b from-gray-50 to-gray-100">
-            <HeroSection />
+            <HeroSection  openSigIn={openSignIn}   openSigUp={openSignUp} />
             <FeaturesSection />
-            <PricingSection pricingPlans={pricingPlans} />
+            <PricingSection pricingPlans={pricingPlans}   openSigUp={openSignUp} />
             <TestimonialsSection testimonials={testimonials} />
+            <CTASection    openSigUp={openSignUp} />
             <FooterSection />
         </div>
     );

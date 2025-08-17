@@ -1,7 +1,7 @@
 import {assests} from "../../assest/assests.js";
 
 
-const  HeroSection = () => {
+const  HeroSection = ({openSigIn,  openSigUp}) => {
     return(
         <div className="lannding-page-content relative">
 
@@ -35,13 +35,14 @@ const  HeroSection = () => {
                          <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 ">
 
 
-                             <button className="flex items-center px-6 py-3 border border-transparent  text-base font-medium  rounded-md   text-white bg-purple-500  hover:bg-purple-600   md:py-4  md:text-lg    md:px-10      transition-all duration-200 shadow-lg hover:shadow-xl   "  >
+                             <button onClick={()=> openSigUp()}
+                                 className="flex items-center px-6 py-3 border border-transparent  text-base font-medium  rounded-md   text-white bg-purple-500  hover:bg-purple-600   md:py-4  md:text-lg    md:px-10      transition-all duration-200 shadow-lg hover:shadow-xl   "  >
 
                                  Get Started
 
 
                              </button>
-                             <button
+                             <button onClick={()=> openSigIn()}
                                  className="flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-200 shadow-lg hover:shadow-xl"
                              >
                                  Sign In

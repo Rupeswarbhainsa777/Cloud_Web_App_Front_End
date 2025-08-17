@@ -1,3 +1,5 @@
+import { Star } from "lucide-react";
+
 const TestimoialsSection = ({ testimonials }) => {
     return (
         <div className="py-20 bg-white overflow-hidden">
@@ -35,12 +37,28 @@ const TestimoialsSection = ({ testimonials }) => {
                                             <p className="text-sm text-gray-600">
                                                 {testimonial.role}, {testimonial.company}
                                             </p>
+
+                                            {/* ⭐ Rating */}
+
                                         </div>
                                     </div>
 
                                     <blockquote className="mt-4 text-gray-700 italic">
                                         “{testimonial.quote}”
                                     </blockquote>
+                                    <div className="flex mt-1">
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star
+                                                key={i}
+                                                size={16}
+                                                className={`${
+                                                    i < testimonial.rating
+                                                        ? "text-yellow-400 fill-yellow-400"
+                                                        : "text-gray-300"
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ))}
