@@ -30,13 +30,43 @@ const pricingPlans = [
     },
 ];
 
+
+
+const testimonials = [
+    {
+        image: "https://randomuser.me/api/portraits/women/44.jpg",
+        name: "Sarah Johnson",
+        role: "Software Engineer",
+        company: "Google",
+        quote:
+            "CloudShare has completely transformed the way our team collaborates. It’s fast, reliable, and super easy to use!",
+    },
+    {
+        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        name: "David Miller",
+        role: "Product Manager",
+        company: "Microsoft",
+        quote:
+            "I love how intuitive CloudShare is. It has streamlined our workflow and boosted productivity significantly.",
+    },
+    {
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+        name: "Emily Carter",
+        role: "UX Designer",
+        company: "Airbnb",
+        quote:
+            "The best platform we’ve used so far for collaboration. The simplicity and speed are unmatched.",
+    },
+]
+
+
 const Landing = () => {
     return (
         <div className="landing-page bg-gradient-to-b from-gray-50 to-gray-100">
             <HeroSection />
             <FeaturesSection />
             <PricingSection pricingPlans={pricingPlans} />
-            <TestimonialsSection />
+            <TestimonialsSection testimonials={testimonials} />
             <FooterSection />
         </div>
     );
