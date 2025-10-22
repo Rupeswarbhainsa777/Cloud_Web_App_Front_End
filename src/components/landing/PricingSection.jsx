@@ -30,7 +30,7 @@ const PricingSection = ({ pricingPlans, openSigUp }) => {
                                         ? "bg-gradient-to-br from-purple-50 to-white"
                                         : "bg-white"
                                 }`}
-                            >
+                            >n
                                 <h3 className="text-2xl font-medium text-gray-900">
                                     {plan.name}
                                 </h3>
